@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h2 style="text-align: center">{{ movie_title | title }}</h2>
+
+
+    {% if lenght < 10 %}
+        <h2>Sorry, we run into problem</h2>
+    {% else %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Title  </th>
+        <th scope="col">Released on</th>
+        <th scope="col">IMDb Rating</th>
+        <th scope="col">Runtime</th>
+        <th scope="col">Director</th>
+        <th scope="col">Actor</th>
+        <th scope="col">Genre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       <th scope="row"> <a href="https://www.imdb.com/title/{{movie_dict.imdbID}}" style="color: rgb(8, 37, 28);">{{movie_dict.Title}}</a></th>  
+        <td>{{movie_dict.Released}}</td>
+        <td>{{movie_dict.imdbRating}}</td>
+        <td>{{movie_dict.Runtime}}</td>
+        <td>{{movie_dict.Director}}</td>
+        <td>{{movie_dict.Actors}}</td>
+        <td>{{movie_dict.Genre}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+
+
+  <style>
+      .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+  </style>
+
+  <style>
+      img:hover {
+    box-shadow: 0 8px 16px 0#10bcd3;
+}
+  </style>
+
+<a href="https://www.imdb.com/title/{{movie_dict.imdbID}}"> <img src={{movie_dict.Poster}} alt="" class="center" > </a>
+
+
+
+
+  {% endif %}
+
+  {% endblock content %}

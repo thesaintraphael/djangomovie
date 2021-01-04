@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2 style="text-align: center">{{ search | title }}</h2>
+
+
+    {% if final_postings %}
+    <br><br>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Poster</th>
+        <th scope="col">Title</th>
+        <th scope="col">Released on</th>
+        <th scope="col">IMDb Rating</th>
+        <th scope="col">Runtime</th>
+        <th scope="col">Director</th>
+        <th scope="col">Actor</th>
+        <th scope="col">Genre</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for post in final_postings %}
+        <style>
+      img:hover {
+    box-shadow: 0 8px 16px 0#10bcd3;
+    }
+  </style>
+
+
+
+<style> 
+    img { 
+        width:auto; 
+        text-align:center; 
+        padding:20px; 
+    } 
+    img { 
+        max-width:75%; 
+        height:auto; 
+    } 
+</style> 
+
+
+    
+      <tr>
+     <!-- <th scope="row"> <a href="https://www.imdb.com/title/{{movie_dict.imdbID}}" style="color: rgb(8, 37, 28);">{{movie_dict.Title}}</a></th>  --> 
+        
+    <th scope="row"><a href="https://www.imdb.com/title/{{post.2.imdbID}}"> <img src={{post.2.Poster}} alt="" class="center" > </a></th>
+        <td>{{post.2.Title}}</td>
+        <td>{{post.2.Released}}</td>
+        <td>{{post.2.imdbRating}}</td>
+        <td>{{post.2.Runtime}}</td>
+        <td>{{post.2.Director}}</td>
+        <td>{{post.2.Actors}}</td>
+        <td>{{post.2.Genre}}</td>
+        
+      </tr> 
+
+<!-- <a href="https://www.imdb.com/title/{{movie_dict.imdbID}}"> <img src={{movie_dict.Poster}} alt="" class="center" > </a> -->
+
+  {% endfor %}
+    
+    </tbody>
+     </table>
+     {% else %}
+        <h2>Sorry, we run into poblem</h2>
+     {% endif %}
+
+  {% endblock content %}

@@ -1,0 +1,143 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MovieScrap</title>
+    <link rel = "icon" href =  
+    "https://www.pngarts.com/files/3/Letter-M-PNG-Picture.png" 
+            type = "image/x-icon"> 
+    
+
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+<script data-ad-client="ca-pub-7492868549585189" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXBSWMEXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8NXBSWMEXM');
+</script>
+
+</head>
+<body>
+<nav>
+    <div class="container nav-wrapper">
+        <a href="{% url 'home' %}" class="brand-logo">MovieScrap</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="{% url 'home' %}">Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 style="text-align: center">What do you want to search for on MovieScrap?</h1>
+    <br>
+    <div class="row">
+        <div class="col s4">
+            <!-- Promo Content 1 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: #EE6E73">flash_on</i>
+                <p>Fast movie-map web scraper</p>
+                <p class="light center">We sugest movies based on GNOD search engine</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Promo Content 2 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: orange">youtube_searched_for</i>
+                <p>Find what you want</p>
+                <p class="light center">Find a movie across movie suggestions based on your input or generate a random suggestion</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Promo Content 3 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
+                <p>Got information</p>
+                <p class="light center">We provide necessary movie information in generated suggestions</p>
+            </div>
+        </div>
+    </div>
+
+    <form action="{% url 'new_search' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="search">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+        <a href="{%url 'generate_movie' %}" class="btn waves-effect waves-light">Generate <i class="material-icons right">flash_on</i> </a>
+
+    </form>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <br><br><br><br><br><br>
+</div>
+
+
+
+
+<style>
+
+	.page-footer {
+  padding: 50px 0;
+  color: #f0f9ff;
+  background-color: #282d32;
+}
+
+  .icon {
+    font-size: 25px;
+    margin: 0 8px;
+    color: #fff;
+    opacity: 0.75;
+  }
+
+
+  .icon:hover {
+  opacity: 0.9;
+}
+
+</style>
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Rafael Salimov</h5>
+        <p class="grey-text text-lighten-4">The owner and creator of the site. Student at the Baku Engineering university</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Contact</h5>
+          <a href="https://facebook.com/thesaintraphael"><i class="icon ion-social-facebook"></i></a>
+          <a  href="https://twitter.com/thesaintraphael"><i class="icon ion-social-twitter"></i></a>
+          <a  href="https://github.com/thesaintraphael"><i class="icon ion-social-github"></i></a>
+          <a  href="https://www.linkedin.com/in/rafasalimov/"><i class="icon ion-social-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 Rafael Salimov
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
